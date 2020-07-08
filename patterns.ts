@@ -1,5 +1,6 @@
 import { MySingleton } from './patterns/singleton/MySingleton';
 import { Compressor, RarCompressionStrategy, ZipCompressionStrategy } from './patterns/strategy/Compressor';
+import { DataRequest } from './patterns/builder/DataRequest'
 
 console.log("Testing design patterns in typescript")
 
@@ -15,3 +16,11 @@ let rarCompressor = new Compressor(new RarCompressionStrategy());
 let zipCompressor = new Compressor(new ZipCompressionStrategy());
 rarCompressor.compress("data");
 zipCompressor.compress("data");
+
+console.log(" ====== Builder ====== ")
+let dataRequest = DataRequest.builder()
+    .withAge(10)
+    .withName('Paco')
+    .build();
+
+console.log(JSON.stringify(dataRequest));
